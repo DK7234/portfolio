@@ -26,14 +26,14 @@ export const metadata: Metadata = {
 
   creator: "David Khoury",
 
-  metadataBase: new URL("https://YOUR-DOMAIN.vercel.app"),
+  metadataBase: new URL("https://david-khoury.vercel.app"),
 
   openGraph: {
     title: "David Khoury | Portfolio",
     description:
       "Systems & Networks Engineering student passionate about cloud, cybersecurity, networking, and full-stack development.",
 
-    url: "https://YOUR-DOMAIN.vercel.app",
+    url: "https://david-khoury.vercel.app",
 
     siteName: "David Khoury Portfolio",
 
