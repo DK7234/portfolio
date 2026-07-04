@@ -89,7 +89,7 @@ export default function Contact() {
 
           <div className="mt-8 flex items-center gap-3 text-gray-300">
             <MapPin size={18} className="shrink-0" />
-            <span>Zahle, Lebanon</span>
+            <span>Little Ferry, New Jersey, USA • Zahle, Lebanon</span>
           </div>
         </motion.div>
       </div>
