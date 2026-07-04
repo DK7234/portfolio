@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #030712;
+  color: white;
+}
+
+::selection {
+  background: #22d3ee;
+  color: #020617;
+}
+
+@keyframes profileGlow {
+  0% {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.12);
+  }
+
+  50% {
+    box-shadow: 0 0 55px rgba(34, 211, 238, 0.22);
+  }
+
+  100% {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.12);
+  }
+}
+
+.profile-glow {
+  animation: profileGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+}
+
+.status-dot {
+  background: #22d3ee;
+  border-radius: 9999px;
+  animation: pulseDot 2.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(34,211,238,.3);
 }

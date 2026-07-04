@@ -1,0 +1,58 @@
+export const certifications = [
+  {
+    title: "CCNA: Introduction to Networks",
+    issuer: "Cisco Networking Academy",
+    year: "2023",
+    color: "cyan",
+    credential:  "https://www.credly.com/badges/795e92d7-837e-4528-93c5-ebb44e283560",
+  },
+  {
+    title: "CCNA: Switching, Routing & Wireless Essentials",
+    issuer: "Cisco Networking Academy",
+    year: "2024",
+    color: "cyan",
+    credential: "https://www.credly.com/earner/earned/badge/e2d86159-2cc1-4605-89a7-efa664fd99d3",
+  },
+  {
+    title: "CCNA: Enterprise Networking, Security & Automation",
+    issuer: "Cisco Networking Academy",
+    year: "2024",
+    color: "cyan",
+    credential: "https://www.credly.com/earner/earned/badge/7eb596c2-b7c0-4d61-8868-4461323080e8",
+  },
+  {
+    title: "Junior Cybersecurity Analyst Career Path",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
+    color: "blue",
+    credential: "https://www.credly.com/badges/d381b37a-4e88-4e56-aa14-2597b40c72d4",
+  },
+  {
+    title: "Network Defense",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
+    color: "blue",
+    credential: "https://www.credly.com/badges/10453588-f2b5-4b74-9931-995b108656b0",
+  },
+  {
+    title: "Endpoint Security",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
+    color: "blue",
+    credential: "https://www.credly.com/badges/828c73e8-3cf5-4ff1-a8d1-a90e75743ffd",
+  },
+  {
+    title: "Cyber Threat Management",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
+    color: "blue",
+    credential: "https://www.credly.com/badges/bfed3f18-ebd8-437d-b653-5263b59c9f32",
+  },
+  {
+    title: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    year: "2025",
+    color: "blue",
+    credential: "https://www.credly.com/badges/371a6381-93be-4c8b-b60f-e745c9ae0749",
+  },
+];
