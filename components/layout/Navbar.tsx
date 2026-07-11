@@ -7,15 +7,15 @@ import { useEffect, useRef, useState } from "react";
 
 const navigation = [
   { label: "Home", href: "/", sectionId: "home" },
-  { label: "About", href: "#about", sectionId: "about" },
-  { label: "Skills", href: "#skills", sectionId: "skills" },
-  { label: "Projects", href: "#projects", sectionId: "projects" },
+  { label: "About", href: "/#about", sectionId: "about" },
+  { label: "Skills", href: "/#skills", sectionId: "skills" },
+  { label: "Projects", href: "/#projects", sectionId: "projects" },
   {
     label: "Experience",
-    href: "#experience",
+    href: "/#experience",
     sectionId: "experience",
   },
-  { label: "Contact", href: "#contact", sectionId: "contact" },
+  { label: "Contact", href: "/#contact", sectionId: "contact" },
 ];
 
 export default function Navbar() {
