@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Khoury Portfolio
+
+My personal portfolio website showcasing my experience, technical skills, certifications, and projects in Software Engineering, Systems & Network Engineering, Cybersecurity, and Cloud Computing.
+
+🌐 **Live Website:** https://david-khoury.vercel.app
+
+---
+
+## Overview
+
+This portfolio was built to serve as my professional online presence, highlighting my technical background, hands-on projects, certifications, and internship experience.
+
+Visitors can explore:
+
+- Professional profile
+- Technical skills
+- Featured projects
+- Certifications
+- Professional experience
+- Resume download
+- Contact information
+
+---
+
+## Features
+
+- Responsive design
+- Modern UI/UX
+- Dark mode support
+- Smooth animations using Framer Motion
+- Interactive project showcase
+- Resume download
+- GitHub integration
+- LinkedIn integration
+- Mobile-friendly layout
+- SEO optimized
+
+---
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+- React Icons
+- Vercel
+
+---
+
+## Project Structure
+
+```text
+portfolio/
+│
+├── app/
+├── components/
+├── public/
+├── lib/
+├── styles/
+├── package.json
+└── README.md
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone https://github.com/DK7234/portfolio.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+🌐 https://david-khoury.vercel.app
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Future Improvements
 
-## Deploy on Vercel
+- Additional project case studies
+- Blog section
+- Project filtering
+- More animations
+- Internationalization
+- Performance enhancements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact
+
+🌐 Portfolio  
+https://david-khoury.vercel.app
+
+💼 LinkedIn  
+https://linkedin.com/in/davidkhoury-engineer
+
+💻 GitHub  
+https://github.com/DK7234
+
+📧 Email  
+david12khoury@hotmail.com
+
+---
+
+## About
+
+Developed as a professional portfolio to showcase my journey as a Computer Engineering student specializing in Systems & Network Engineering, with interests in Software Engineering, Cybersecurity, Cloud Computing, and Networking.
+
+The website is continuously updated as I complete new projects, certifications, and professional experiences.
