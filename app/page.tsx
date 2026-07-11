@@ -8,7 +8,7 @@ import Contact from "@/components/home/Contact";
 
 export default function Home() {
   return (
-    <>
+    <main className="w-full overflow-x-clip">
       <Hero />
       <About />
       <Skills />
@@ -16,6 +16,6 @@ export default function Home() {
       <Experience />
       <Certifications />
       <Contact />
-    </>
+    </main>
   );
 }

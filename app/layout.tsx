@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { Analytics } from "@vercel/analytics/react";
+
 export const metadata: Metadata = {
   title: "David Khoury | Systems & Networks Engineer",
   description:
@@ -23,7 +24,6 @@ export const metadata: Metadata = {
   ],
 
   authors: [{ name: "David Khoury" }],
-
   creator: "David Khoury",
 
   metadataBase: new URL("https://david-khoury.vercel.app"),
@@ -32,15 +32,10 @@ export const metadata: Metadata = {
     title: "David Khoury | Portfolio",
     description:
       "Systems & Networks Engineering student passionate about cloud, cybersecurity, networking, and full-stack development.",
-
     url: "https://david-khoury.vercel.app",
-
     siteName: "David Khoury Portfolio",
-
     locale: "en_US",
-
     type: "website",
-
     images: [
       {
         url: "/og-image.png",
@@ -74,11 +69,14 @@ export default function RootLayout({
       <body>
         <ScrollProgress />
         <Navbar />
-        <main className="min-h-screen pt-20">{children}
-          {process.env.VERCEL === "1" && <Analytics />}
+
+        <main className="min-h-screen overflow-x-clip">
+          {children}
         </main>
+
         <Footer />
-        
+
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );

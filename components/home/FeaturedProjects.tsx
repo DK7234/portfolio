@@ -1,43 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard";
+import Reveal from "@/components/ui/Reveal";
+import StaggerContainer from "@/components/ui/StaggerContainer";
+import StaggerItem from "@/components/ui/StaggerItem";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function FeaturedProjects() {
   return (
-    <section
-      id="projects"
-      className="border-t border-white/10 bg-[#030712] px-6 py-24"
-    >
-      <div className="mx-auto max-w-7xl">
-        <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
-          Featured Projects
-        </p>
+   <section
+  id="projects"
+  className="scroll-mt-20 border-t border-white/10 bg-[#030712] py-20 md:py-24 lg:py-28"
+>
+  <Container>
+    <Reveal>
+      <SectionHeading
+        eyebrow="Featured Projects"
+        title="Real projects I&apos;ve built."
+        description="A collection of projects across cybersecurity, networking, cloud, IoT, automation, and full-stack development."
+      />
+    </Reveal>
 
-        <h2 className="mb-6 text-5xl font-bold text-white">
-          Real projects I&apos;ve built.
-        </h2>
-
-        <p className="mb-14 max-w-3xl text-lg leading-8 text-gray-300">
-          A collection of projects across cybersecurity, networking, cloud, IoT,
-          automation, and full-stack development.
-        </p>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-            >
+         <StaggerContainer className="mt-12 grid gap-6 md:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          {projects.map((project) => (
+            <StaggerItem key={project.title} className="h-full">
               <ProjectCard project={project} />
-            </motion.div>
+            </StaggerItem>
           ))}
-        </div>
-      </div>
+        </StaggerContainer>
+      </Container>
     </section>
   );
 }
