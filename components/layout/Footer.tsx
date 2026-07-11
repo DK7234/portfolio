@@ -47,13 +47,14 @@ export default function Footer() {
           </a>
 
           <a
-            href="/resume/resume.pdf"
-            target="_blank"
-            aria-label="Download David Khoury resume"
-            className="hover:text-cyan-400"
-          >
-            <FileText size={20} />
-          </a>
+  href="/resume/david-khoury-us-resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Open David Khoury U.S. resume"
+  className="transition hover:text-cyan-400"
+>
+  <FileText size={20} aria-hidden="true" />
+</a>
         </div>
       </div>
 

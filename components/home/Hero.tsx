@@ -45,13 +45,13 @@ export default function Hero() {
           <div className="mt-4 min-h-[44px] text-2xl font-semibold text-cyan-400 md:text-3xl">
             <TypeAnimation
               sequence={[
-                "Systems & Networks",
+                "Full Stack Developer Intern",
                 1800,
-                "Cloud Enthusiast",
+                "Systems & Network Engineering Student",
                 1800,
-                "Cybersecurity",
+                "Cloud Computing Enthusiast",
                 1800,
-                "Full-Stack Developer",
+                "Cybersecurity Practitioner",
                 1800,
               ]}
               wrapper="span"
@@ -61,10 +61,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-            Computer Engineering student specializing in Systems & Networks
-            Engineering. Passionate about cloud computing, cybersecurity,
-            networking, and building scalable full-stack applications that solve
-            real-world problems.
+            Computer Engineering student specializing in Systems & Network Engineering with professional experience building production-ready SaaS applications using Next.js, React, TypeScript, Prisma, MySQL, and cloud technologies. Passionate about software engineering, cybersecurity, networking, and scalable systems.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -76,21 +73,21 @@ export default function Hero() {
             </Link>
 
             <a
-              href="/resume/resume.pdf"
-              download
-              aria-label="Download David Khoury resume"
-              className="flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:scale-105 hover:border-cyan-400 hover:text-cyan-400"
-            >
-              <Download size={18} />
-              Download Resume
-            </a>
+  href="/resume/david-khoury-us-resume.pdf"
+  download
+  aria-label="Download David Khoury U.S. resume"
+  className="flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:scale-105 hover:border-cyan-400 hover:text-cyan-400"
+>
+  <Download size={18} aria-hidden="true" />
+  Download U.S. Resume
+</a>
           </div>
 
           <div className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
-            <Stat number={15} suffix="+" label="Projects" />
+            <Stat number={6} suffix="+" label="Projects" />
             <Stat number={8} suffix="+" label="Certifications" />
-            <Stat number={3} label="Internships" />
-            <Stat number={4} suffix="+" label="Years Learning" />
+            <Stat number={1} label="Internship" />
+            <Stat number={2022}  label="Engineering Journey" />
           </div>
 
           <div className="mt-8 flex gap-4 text-gray-300">

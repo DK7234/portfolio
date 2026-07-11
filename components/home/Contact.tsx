@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, FileText, MapPin } from "lucide-react";
+import { FileText, Mail, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const contacts = [
@@ -10,24 +10,34 @@ const contacts = [
     label: "Email",
     value: "david12khoury@hotmail.com",
     href: "mailto:david12khoury@hotmail.com",
+    external: false,
   },
   {
     icon: FaLinkedin,
     label: "LinkedIn",
     value: "davidkhoury-engineer",
     href: "https://linkedin.com/in/davidkhoury-engineer",
+    external: true,
   },
   {
     icon: FaGithub,
     label: "GitHub",
     value: "DK7234",
     href: "https://github.com/DK7234",
+    external: true,
+  },
+];
+
+const resumes = [
+  {
+    label: "U.S. Resume",
+    description: "For U.S.-based opportunities",
+    href: "/resume/david-khoury-us-resume.pdf",
   },
   {
-    icon: FileText,
-    label: "Resume",
-    value: "Download CV",
-    href: "/resume/resume.pdf",
+    label: "Lebanon CV",
+    description: "For Lebanon and regional opportunities",
+    href: "/resume/david-khoury-lebanon-cv.pdf",
   },
 ];
 
@@ -41,7 +51,8 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65 }}
           className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-8 md:p-12"
         >
           <p className="mb-3 text-sm uppercase tracking-[0.35em] text-cyan-400">
@@ -65,19 +76,20 @@ export default function Contact() {
                 <a
                   key={item.label}
                   href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   aria-label={`${item.label}: ${item.value}`}
-                  className="group rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5 sm:p-5"
+                  className="group rounded-2xl border border-white/10 bg-black/20 p-4 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5 sm:p-5"
                 >
                   <div className="flex min-w-0 items-center gap-4">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                      <Icon size={22} />
+                      <Icon size={22} aria-hidden="true" />
                     </div>
 
-                     <div className="min-w-0">
+                    <div className="min-w-0">
                       <p className="text-sm text-gray-400">{item.label}</p>
-                      <p className="break-all font-semibold text-white group-hover:text-cyan-300">
+
+                      <p className="break-all font-semibold text-white transition group-hover:text-cyan-300">
                         {item.value}
                       </p>
                     </div>
@@ -87,9 +99,66 @@ export default function Contact() {
             })}
           </div>
 
-          <div className="mt-8 flex items-center gap-3 text-gray-300">
-            <MapPin size={18} className="shrink-0" />
-            <span>Little Ferry, New Jersey, USA • Zahle, Lebanon</span>
+          <div className="mt-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Resume Downloads
+            </p>
+
+            <div className="mt-4 grid gap-5 md:grid-cols-2">
+              {resumes.map((resume) => (
+                <a
+                  key={resume.label}
+                  href={resume.href}
+                  download
+                  aria-label={`Download David Khoury ${resume.label}`}
+                  className="group rounded-2xl border border-white/10 bg-black/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/5"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
+                      <FileText size={22} aria-hidden="true" />
+                    </div>
+
+                    <div>
+                      <p className="font-semibold text-white transition group-hover:text-cyan-300">
+                        {resume.label}
+                      </p>
+
+                      <p className="mt-1 text-sm text-gray-400">
+                        {resume.description}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Locations
+            </p>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="flex items-start gap-3 text-gray-300">
+                <MapPin
+                  size={18}
+                  aria-hidden="true"
+                  className="mt-1 shrink-0 text-cyan-400"
+                />
+
+                <span>Little Ferry, New Jersey, United States</span>
+              </div>
+
+              <div className="flex items-start gap-3 text-gray-300">
+                <MapPin
+                  size={18}
+                  aria-hidden="true"
+                  className="mt-1 shrink-0 text-cyan-400"
+                />
+
+                <span>Zahle, Lebanon</span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

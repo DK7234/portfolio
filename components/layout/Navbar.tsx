@@ -8,11 +8,26 @@ export default function Navbar() {
           David<span className="text-cyan-400">.</span>
         </Link>
 
-        <div className="hidden gap-8 text-sm text-gray-300 md:flex">
-          <Link href="#about" className="hover:text-cyan-400">About</Link>
-          <Link href="#projects" className="hover:text-cyan-400">Projects</Link>
-          <Link href="/resume/resume.pdf" className="hover:text-cyan-400">Resume</Link>
-          <Link href="#contact" className="hover:text-cyan-400">Contact</Link>
+        <div className="hidden items-center gap-8 text-sm text-gray-300 md:flex">
+          <Link href="#about" className="transition hover:text-cyan-400">
+            About
+          </Link>
+
+          <Link href="#skills" className="transition hover:text-cyan-400">
+            Skills
+          </Link>
+
+          <Link href="#projects" className="transition hover:text-cyan-400">
+            Projects
+          </Link>
+
+          <Link href="#experience" className="transition hover:text-cyan-400">
+            Experience
+          </Link>
+
+          <Link href="#contact" className="transition hover:text-cyan-400">
+            Contact
+          </Link>
         </div>
       </nav>
     </header>

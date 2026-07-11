@@ -16,7 +16,11 @@ export default function Stat({ number, label, suffix = "" }: Props) {
   return (
     <div>
       <p className="text-4xl font-bold text-cyan-400">
-        <CountUp end={number} duration={2} />
+        <CountUp
+  end={number}
+  duration={2}
+  separator=""
+/>
         {suffix}
       </p>
 
