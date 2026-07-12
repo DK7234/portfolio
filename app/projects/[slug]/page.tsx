@@ -12,7 +12,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-
+import ProjectGallery from "@/components/projects/ProjectGallery";
 import Container from "@/components/ui/Container";
 import {
   getProjectBySlug,
@@ -332,6 +332,10 @@ export default async function ProjectPage({
           </div>
         </Container>
       </section>
+      <ProjectGallery
+  projectTitle={project.title}
+  images={project.gallery ?? []}
+/>
     </main>
   );
 }

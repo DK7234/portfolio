@@ -1,3 +1,10 @@
+export type ProjectGalleryImage = {
+  src: string;
+  alt: string;
+  title: string;
+  description?: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,4 +16,5 @@ export type Project = {
   liveDemo?: string;
   image: string;
   status?: "public" | "private" | "coming-soon";
+  gallery?: ProjectGalleryImage[];
 };
