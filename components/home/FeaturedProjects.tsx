@@ -16,23 +16,28 @@ export default function FeaturedProjects() {
 >
   <Container>
     <Reveal>
-      <SectionHeading
-        eyebrow="Featured Projects"
-        title="Real projects I&apos;ve built."
-        description="A collection of projects across cybersecurity, networking, cloud, IoT, automation, and full-stack development."
-      />
-    </Reveal>
+  <SectionHeading
+    eyebrow="Featured Projects"
+    title="Real projects I&apos;ve built."
+    description="A collection of projects across cybersecurity, networking, cloud, IoT, automation, and full-stack development."
+  />
+</Reveal>
 
-         <StaggerContainer
-  amount={0.01}
-  className="mt-12 grid gap-6 md:mt-14 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
->
-          {projects.map((project) => (
-            <StaggerItem key={project.title} className="h-full">
-              <ProjectCard project={project} />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+{/* Reliable on all mobile devices */}
+<div className="mt-12 grid gap-6 md:hidden">
+  {projects.map((project) => (
+    <ProjectCard key={project.title} project={project} />
+  ))}
+</div>
+
+{/* Animated on larger screens */}
+<StaggerContainer className="mt-12 hidden gap-6 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+  {projects.map((project) => (
+    <StaggerItem key={project.title} className="h-full">
+      <ProjectCard project={project} />
+    </StaggerItem>
+  ))}
+</StaggerContainer>
       </Container>
     </section>
   );
