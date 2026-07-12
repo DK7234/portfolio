@@ -1,5 +1,6 @@
 import { ArrowUpRight, LockKeyhole } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
 type Project = {
   title: string;
@@ -8,6 +9,7 @@ type Project = {
   category: string;
   github?: string;
   image: string;
+  slug: string;
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -45,7 +47,13 @@ export default function ProjectCard({ project }: { project: Project }) {
           </h3>
 
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-gray-400 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:border-cyan-400/30 group-hover:text-cyan-400">
-            <ArrowUpRight size={18} aria-hidden="true" />
+           <Link
+  href={`/projects/${project.slug}`}
+  aria-label={`View details for ${project.title}`}
+  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-gray-400 transition duration-300 hover:-translate-y-1 hover:translate-x-1 hover:border-cyan-400/35 hover:bg-cyan-400/10 hover:text-cyan-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+>
+  <ArrowUpRight size={18} aria-hidden="true" />
+</Link>
           </div>
         </div>
 

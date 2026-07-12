@@ -22,6 +22,12 @@ export const projects: Project[] = [
     github: "",
     image: "/images/projects/social-media-publisher.png",
     status: "private",
+
+    relatedProjects: [
+  "automated-ip-reputation-checker",
+  "forest-fire-prevention-iot-system",
+  "cybersecurity-tools-portfolio",
+],
   },
   {
     slug: "bloodhound-active-directory-attack-path-lab",
@@ -66,6 +72,77 @@ export const projects: Project[] = [
       "Controlled phishing simulation created with GoPhish to demonstrate credential-targeting risks in an Active Directory environment.",
   },
 ],
+relatedProjects: [
+  "cybersecurity-tools-portfolio",
+  "linux-recon-tool",
+  "network-device-inventory-tool",
+],
+
+architecture: {
+  title: "Active Directory Security Lab Architecture",
+  description:
+    "The lab combines Active Directory relationship analysis with a controlled phishing simulation to demonstrate technical and human attack paths.",
+  flows: [
+    {
+      title: "Directory Attack-Path Analysis",
+      description:
+        "Active Directory relationship data is collected, stored as a graph, and analyzed for privilege-escalation paths.",
+      nodes: [
+        {
+          title: "Windows Server 2022",
+          subtitle: "Domain controller",
+        },
+        {
+          title: "Active Directory",
+          subtitle: "Users, groups, computers, and permissions",
+        },
+        {
+          title: "SharpHound CE",
+          subtitle: "Directory relationship collection",
+        },
+        {
+          title: "Neo4j",
+          subtitle: "Graph data storage",
+        },
+        {
+          title: "BloodHound CE",
+          subtitle: "Relationship visualization",
+        },
+        {
+          title: "Attack-Path Analysis",
+          subtitle: "Privilege-escalation investigation",
+        },
+      ],
+    },
+    {
+      title: "Controlled Phishing Simulation",
+      description:
+        "A controlled GoPhish campaign targets the lab user John Smith to demonstrate credential-focused social-engineering risk.",
+      nodes: [
+        {
+          title: "GoPhish",
+          subtitle: "Campaign configuration",
+        },
+        {
+          title: "Phishing Email",
+          subtitle: "Controlled simulation message",
+        },
+        {
+          title: "John Smith (jsmith)",
+          subtitle: "Lab user and campaign target",
+        },
+        {
+          title: "Landing Page",
+          subtitle: "Controlled credential-capture simulation",
+        },
+        {
+          title: "Campaign Results",
+          subtitle: "Security-awareness analysis",
+        },
+      ],
+    },
+  ],
+},
   },
   {
     slug: "cybersecurity-tools-portfolio",
@@ -177,6 +254,66 @@ export const projects: Project[] = [
       "Performs frequency analysis, ranks possible keys, and automatically recovers the original plaintext without the encryption key.",
   },
 ],
+architecture: {
+  title: "Python Cybersecurity Toolkit",
+  description:
+    "A collection of security-focused Python utilities covering network reconnaissance, password auditing, traffic analysis, firewall auditing, brute-force detection, and cryptography.",
+
+  flows: [
+    {
+      title: "Network Security Utilities",
+      description:
+        "Utilities focused on network discovery, monitoring, and traffic analysis.",
+      nodes: [
+        {
+          title: "Python",
+          subtitle: "Core application",
+        },
+        {
+          title: "Port Scanner",
+          subtitle: "TCP enumeration",
+        },
+        {
+          title: "Packet Sniffer",
+          subtitle: "Live traffic capture",
+        },
+        {
+          title: "Traffic Analysis",
+          subtitle: "Protocol inspection",
+        },
+      ],
+    },
+
+    {
+      title: "Security Assessment Utilities",
+      description:
+        "Utilities for auditing passwords, detecting attacks, analyzing firewall rules, and demonstrating cryptographic concepts.",
+      nodes: [
+        {
+          title: "Password Checker",
+          subtitle: "Strength auditing",
+        },
+        {
+          title: "Brute Force Detector",
+          subtitle: "Log analysis",
+        },
+        {
+          title: "Firewall Analyzer",
+          subtitle: "Security auditing",
+        },
+        {
+          title: "Caesar Cipher",
+          subtitle: "Encryption & cryptanalysis",
+        },
+      ],
+    },
+  ],
+},
+relatedProjects: [
+  "bloodhound-active-directory-attack-path-lab",
+  "linux-recon-tool",
+  "automated-ip-reputation-checker",
+],
   },
   {
     slug: "forest-fire-prevention-iot-system",
@@ -197,6 +334,11 @@ export const projects: Project[] = [
     github: "",
     image: "/images/projects/forest-fire.png",
     status: "private",
+    relatedProjects: [
+  "social-media-publisher-saas",
+  "automated-ip-reputation-checker",
+  "network-device-inventory-tool",
+],
   },
   {
     slug: "automated-ip-reputation-checker",
@@ -260,6 +402,45 @@ export const projects: Project[] = [
       "Completed workflow showing every node executed successfully from submission to notification delivery.",
   },
 ],
+relatedProjects: [
+  "network-device-inventory-tool",
+  "linux-recon-tool",
+  "cybersecurity-tools-portfolio",
+],
+architecture: {
+  title: "Automated Threat Intelligence Workflow",
+  description:
+    "An n8n automation that receives an IP address, queries VirusTotal, classifies the result, and delivers a structured Slack alert.",
+  flows: [
+    {
+      title: "IP Reputation Analysis",
+      description:
+        "The workflow collects analyst input, enriches the IP address with threat-intelligence data, and routes the result based on reputation.",
+      nodes: [
+        {
+          title: "Analyst",
+          subtitle: "Submits an IP address",
+        },
+        {
+          title: "n8n Form",
+          subtitle: "Workflow input interface",
+        },
+        {
+          title: "VirusTotal API",
+          subtitle: "Threat-intelligence lookup",
+        },
+        {
+          title: "Classification Logic",
+          subtitle: "Safe or malicious decision path",
+        },
+        {
+          title: "Slack Alert",
+          subtitle: "Automated security notification",
+        },
+      ],
+    },
+  ],
+},
   },
   {
     slug: "linux-recon-tool",
@@ -309,6 +490,72 @@ export const projects: Project[] = [
       "Performs SUID enumeration, verifies critical system files, evaluates disk health, and summarizes the Linux security assessment.",
   },
 ],
+relatedProjects: [
+  "cybersecurity-tools-portfolio",
+  "network-device-inventory-tool",
+  "bloodhound-active-directory-attack-path-lab",
+],
+architecture: {
+  title: "Linux Security Reconnaissance Workflow",
+  description:
+    "A Bash-based auditing workflow that collects host, network, process, service, authentication, and privilege information from a Linux system.",
+  flows: [
+    {
+      title: "Host Reconnaissance",
+      description:
+        "The script gathers system and network context before performing deeper security checks.",
+      nodes: [
+        {
+          title: "Linux Host",
+          subtitle: "Assessment target",
+        },
+        {
+          title: "Bash Recon Script",
+          subtitle: "Automated collection workflow",
+        },
+        {
+          title: "System Discovery",
+          subtitle: "OS, kernel, users, uptime, and storage",
+        },
+        {
+          title: "Network Inspection",
+          subtitle: "Interfaces, routes, and connectivity",
+        },
+        {
+          title: "Process & Service Audit",
+          subtitle: "Running services and suspicious processes",
+        },
+        {
+          title: "Security Summary",
+          subtitle: "Integrity and privilege findings",
+        },
+      ],
+    },
+    {
+      title: "Privilege and Integrity Review",
+      description:
+        "Additional checks identify potential privilege-escalation opportunities and system-integrity concerns.",
+      nodes: [
+        {
+          title: "Authentication Logs",
+          subtitle: "Login and security-event review",
+        },
+        {
+          title: "SUID Enumeration",
+          subtitle: "Privileged binary discovery",
+        },
+        {
+          title: "Critical File Checks",
+          subtitle: "Integrity verification",
+        },
+        {
+          title: "Assessment Report",
+          subtitle: "Consolidated findings",
+        },
+      ],
+    },
+  ],
+},
   },
   {
     slug: "network-device-inventory-tool",
@@ -344,6 +591,45 @@ export const projects: Project[] = [
       "Exports the discovered devices and their open ports into a CSV inventory report for documentation and future analysis.",
   },
 ],
+relatedProjects: [
+  "linux-recon-tool",
+  "cybersecurity-tools-portfolio",
+  "automated-ip-reputation-checker",
+],
+architecture: {
+  title: "Network Inventory Discovery Pipeline",
+  description:
+    "A Python-based workflow that scans a local network, identifies reachable hosts and exposed services, and exports the results to a structured CSV inventory.",
+  flows: [
+    {
+      title: "Device Discovery and Inventory",
+      description:
+        "The tool moves from network scanning to structured documentation of discovered assets.",
+      nodes: [
+        {
+          title: "Target Network",
+          subtitle: "Local subnet",
+        },
+        {
+          title: "Host Discovery",
+          subtitle: "Reachable-device detection",
+        },
+        {
+          title: "Port Enumeration",
+          subtitle: "Common TCP service checks",
+        },
+        {
+          title: "Device Inventory",
+          subtitle: "Host and service records",
+        },
+        {
+          title: "CSV Export",
+          subtitle: "Structured inventory report",
+        },
+      ],
+    },
+  ],
+},
   },
 ];
 
@@ -355,4 +641,37 @@ export function getProjectSlugs() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export function getRelatedProjects(project: Project) {
+  if (!project.relatedProjects?.length) {
+    return [];
+  }
+
+  return project.relatedProjects
+    .map((slug) => getProjectBySlug(slug))
+    .filter((p): p is Project => p !== undefined);
+}
+
+export function getAdjacentProjects(currentSlug: string) {
+  const currentIndex = projects.findIndex(
+    (project) => project.slug === currentSlug,
+  );
+
+  if (currentIndex === -1) {
+    return {
+      previousProject: null,
+      nextProject: null,
+    };
+  }
+
+  return {
+    previousProject:
+      currentIndex > 0 ? projects[currentIndex - 1] : null,
+
+    nextProject:
+      currentIndex < projects.length - 1
+        ? projects[currentIndex + 1]
+        : null,
+  };
 }

@@ -14,10 +14,16 @@ import {
 import { FaGithub } from "react-icons/fa";
 import ProjectGallery from "@/components/projects/ProjectGallery";
 import Container from "@/components/ui/Container";
+import RelatedProjects from "@/components/projects/RelatedProjects";
 import {
   getProjectBySlug,
   getProjectSlugs,
+  getRelatedProjects,
+  getAdjacentProjects,
 } from "@/data/projects";
+import ArchitectureDiagram from "@/components/projects/ArchitectureDiagram";
+import ProjectNavigation from "@/components/projects/ProjectNavigation";
+import ProjectStats from "@/components/projects/ProjectStats";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -92,7 +98,11 @@ export default async function ProjectPage({
     project.status === "public" && Boolean(project.github);
 
   const repositoryLabel = getRepositoryLabel(project.status);
-
+  const relatedProjects = getRelatedProjects(project);
+  const {
+  previousProject,
+  nextProject,
+} = getAdjacentProjects(project.slug);
   return (
     <main className="min-h-screen overflow-x-clip bg-[#020617] pt-20">
       <section className="relative isolate overflow-hidden border-b border-white/10 py-16 sm:py-20 md:py-24 lg:py-28">
@@ -332,9 +342,18 @@ export default async function ProjectPage({
           </div>
         </Container>
       </section>
+      <ProjectStats project={project} />
       <ProjectGallery
   projectTitle={project.title}
   images={project.gallery ?? []}
+/>
+{project.architecture && (
+  <ArchitectureDiagram architecture={project.architecture} />
+)}
+<RelatedProjects projects={relatedProjects} />
+<ProjectNavigation
+  previousProject={previousProject}
+  nextProject={nextProject}
 />
     </main>
   );
