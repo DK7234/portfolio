@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://david-khoury.vercel.app/sitemap.xml",
+    host: "https://david-khoury.vercel.app",
   };
 }

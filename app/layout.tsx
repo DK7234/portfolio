@@ -4,58 +4,113 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { Analytics } from "@vercel/analytics/react";
-
+import JsonLd from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
-  title: "David Khoury | Systems & Networks Engineer",
+  metadataBase: new URL("https://david-khoury.vercel.app"),
+
+  title: {
+    default: "David Khoury | Computer Engineering Portfolio",
+    template: "%s | David Khoury",
+  },
+
   description:
-    "Computer Engineering student specializing in Systems & Networks, Cybersecurity, Cloud Computing, and Full-Stack Development.",
+    "Portfolio of David Khoury, a Computer Engineering student specializing in Systems and Network Engineering, software development, cloud computing, networking, and cybersecurity.",
 
   keywords: [
     "David Khoury",
     "Computer Engineering",
-    "Systems and Networks",
+    "Systems Engineering",
+    "Network Engineering",
+    "Software Engineering",
     "Cybersecurity",
-    "Cloud",
-    "Azure",
-    "Full Stack",
-    "React",
+    "Cloud Computing",
+    "Microsoft Azure",
+    "Full-Stack Development",
     "Next.js",
+    "React",
+    "TypeScript",
+    "Python",
     "Portfolio",
   ],
 
-  authors: [{ name: "David Khoury" }],
-  creator: "David Khoury",
+  authors: [
+    {
+      name: "David Khoury",
+      url: "https://david-khoury.vercel.app",
+    },
+  ],
 
-  metadataBase: new URL("https://david-khoury.vercel.app"),
+  creator: "David Khoury",
+  publisher: "David Khoury",
+
+  alternates: {
+    canonical: "/",
+  },
 
   openGraph: {
-    title: "David Khoury | Portfolio",
-    description:
-      "Systems & Networks Engineering student passionate about cloud, cybersecurity, networking, and full-stack development.",
-    url: "https://david-khoury.vercel.app",
-    siteName: "David Khoury Portfolio",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "David Khoury Portfolio",
+    title: "David Khoury | Computer Engineering Portfolio",
+    description:
+      "Explore projects across software engineering, systems, networking, cloud computing, cybersecurity, IoT, and automation.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "David Khoury Portfolio",
+        alt: "David Khoury Computer Engineering Portfolio",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "David Khoury | Portfolio",
+    title: "David Khoury | Computer Engineering Portfolio",
     description:
-      "Systems & Networks Engineering student specializing in Cloud, Networking and Cybersecurity.",
+      "Projects across software engineering, systems, networking, cloud computing, cybersecurity, IoT, and automation.",
     images: ["/og-image.png"],
   },
 
   icons: {
     icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
+  category: "technology",
+};
+const personStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "David Khoury",
+  url: "https://david-khoury.vercel.app",
+  image: "https://david-khoury.vercel.app/images/profile/profile.png",
+  sameAs: [
+    "https://github.com/DK7234",
+    "https://linkedin.com/in/davidkhoury-engineer",
+  ],
+  jobTitle: "Computer Engineering Student and Full-Stack Developer Intern",
+  description:
+    "Computer Engineering student specializing in Systems and Network Engineering with experience in full-stack development, cloud computing, networking, and cybersecurity.",
+  knowsAbout: [
+    "Software Engineering",
+    "Full-Stack Development",
+    "Systems Engineering",
+    "Computer Networks",
+    "Cloud Computing",
+    "Cybersecurity",
+    "DevOps",
+    "Microsoft Azure",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Python",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Antonine University",
   },
 };
 
@@ -67,6 +122,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+         <JsonLd data={personStructuredData} />
         <ScrollProgress />
         <Navbar />
 

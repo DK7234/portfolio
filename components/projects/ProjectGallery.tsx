@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ChevronLeft,
@@ -39,25 +39,25 @@ export default function ProjectGallery({
     setActiveIndex(null);
   }
 
-  function showPrevious() {
-    setActiveIndex((currentIndex) => {
-      if (currentIndex === null) {
-        return 0;
-      }
+  const showPrevious = useCallback(() => {
+  setActiveIndex((currentIndex) => {
+    if (currentIndex === null) {
+      return 0;
+    }
 
-      return (currentIndex - 1 + images.length) % images.length;
-    });
-  }
+    return (currentIndex - 1 + images.length) % images.length;
+  });
+}, [images.length]);
 
-  function showNext() {
-    setActiveIndex((currentIndex) => {
-      if (currentIndex === null) {
-        return 0;
-      }
+  const showNext = useCallback(() => {
+  setActiveIndex((currentIndex) => {
+    if (currentIndex === null) {
+      return 0;
+    }
 
-      return (currentIndex + 1) % images.length;
-    });
-  }
+    return (currentIndex + 1) % images.length;
+  });
+}, [images.length]);
 
   useEffect(() => {
   if (!isOpen) {
@@ -107,7 +107,7 @@ export default function ProjectGallery({
 
     window.removeEventListener("keydown", handleKeyDown);
   };
-}, [isOpen, images.length]);
+}, [isOpen, showPrevious, showNext]);
 
   if (images.length === 0) {
     return null;

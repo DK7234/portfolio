@@ -24,7 +24,10 @@ import {
 import ArchitectureDiagram from "@/components/projects/ArchitectureDiagram";
 import ProjectNavigation from "@/components/projects/ProjectNavigation";
 import ProjectStats from "@/components/projects/ProjectStats";
+import JsonLd from "@/components/seo/JsonLd";
+import type { Project } from "@/types/project";
 
+const SITE_URL = "https://david-khoury.vercel.app";
 type ProjectPageProps = {
   params: Promise<{
     slug: string;
@@ -32,6 +35,69 @@ type ProjectPageProps = {
 };
 
 export const dynamicParams = false;
+
+
+function getAbsoluteUrl(path: string) {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+function getProjectStructuredData(project: Project) {
+  const projectUrl = `${SITE_URL}/projects/${project.slug}`;
+
+  const images = [
+    project.image,
+    ...(project.gallery?.map((image) => image.src) ?? []),
+  ].map(getAbsoluteUrl);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `${projectUrl}#project`,
+
+    name: project.title,
+    headline: project.title,
+    description: project.description,
+
+    url: projectUrl,
+    mainEntityOfPage: projectUrl,
+
+    image: images,
+
+    creator: {
+      "@id": `${SITE_URL}/#person`,
+    },
+
+    author: {
+      "@id": `${SITE_URL}/#person`,
+    },
+
+    genre: project.category,
+
+    keywords: project.tech,
+
+    about: project.tech.map((technology) => ({
+      "@type": "Thing",
+      name: technology,
+    })),
+
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "David Khoury Portfolio",
+      url: SITE_URL,
+    },
+
+    ...(project.status === "public" && project.github
+      ? {
+          sameAs: project.github,
+        }
+      : {}),
+  };
+}
 
 export function generateStaticParams() {
   return getProjectSlugs();
@@ -45,30 +111,67 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found | David Khoury",
+      title: "Project Not Found",
+      description: "The requested project could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const projectPath = `/projects/${project.slug}`;
+
+  const socialImage = project.image || "/og-image.png";
+
   return {
-    title: `${project.title} | David Khoury`,
+    title: project.title,
+
     description: project.shortDescription,
 
+    keywords: [
+      project.title,
+      project.category,
+      ...project.tech,
+      "David Khoury",
+      "Engineering Portfolio",
+    ],
+
     alternates: {
-      canonical: `/projects/${project.slug}`,
+      canonical: projectPath,
     },
 
     openGraph: {
-      title: `${project.title} | David Khoury`,
-      description: project.shortDescription,
-      url: `/projects/${project.slug}`,
       type: "article",
+      locale: "en_US",
+      url: projectPath,
+      siteName: "David Khoury Portfolio",
+      title: project.title,
+      description: project.shortDescription,
+      images: [
+        {
+          url: socialImage,
+          alt: `${project.title} project by David Khoury`,
+        },
+      ],
     },
 
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} | David Khoury`,
+      title: project.title,
       description: project.shortDescription,
+      images: [socialImage],
     },
+
+    authors: [
+      {
+        name: "David Khoury",
+        url: SITE_URL,
+      },
+    ],
+
+    creator: "David Khoury",
+    publisher: "David Khoury",
   };
 }
 
@@ -84,6 +187,7 @@ function getRepositoryLabel(status?: string) {
   return "Public repository";
 }
 
+
 export default async function ProjectPage({
   params,
 }: ProjectPageProps) {
@@ -93,6 +197,7 @@ export default async function ProjectPage({
   if (!project) {
     notFound();
   }
+  const projectStructuredData = getProjectStructuredData(project);
 
   const hasRepository =
     project.status === "public" && Boolean(project.github);
@@ -105,6 +210,7 @@ export default async function ProjectPage({
 } = getAdjacentProjects(project.slug);
   return (
     <main className="min-h-screen overflow-x-clip bg-[#020617] pt-20">
+      <JsonLd data={projectStructuredData} />
       <section className="relative isolate overflow-hidden border-b border-white/10 py-16 sm:py-20 md:py-24 lg:py-28">
         {/* Background grid */}
         <div
