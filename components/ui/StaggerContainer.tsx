@@ -18,7 +18,7 @@ export default function StaggerContainer({
   delayChildren = 0.08,
   staggerChildren = 0.08,
   once = true,
-  amount = 0.15,
+  amount = 0.01,
 }: StaggerContainerProps) {
   const shouldReduceMotion = useReducedMotion();
 
